@@ -1,0 +1,89 @@
+<p-toast position="top-center"></p-toast>
+
+<div class="card">
+  <p-table #dtMicrosoftUpdates [value]="microsoftUpdates" dataKey="id"
+      [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
+      [paginator]="true" currentPageReportTemplate="Exibindo {first} a {last} de {totalRecords} registros"
+      [globalFilterFields]="['idMicrosoftUpdate','alias','documentTitle','severity','initialReleaseDate','currentReleaseDate','cvrfUrl']"
+      [rowHover]="true" >
+      <ng-template pTemplate="caption">
+          <p>
+            <button pButton type="button" class="p-button-info" (click)="getMicrosoftUpdates()">Consultar</button>
+          </p>
+          <div class="p-d-flex">
+              <span class="p-input-icon-left p-ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input #inputGlobalSearch pInputText type="text" (input)="dtMicrosoftUpdates.filterGlobal(inputGlobalSearch.value, 'contains')" placeholder="Buscar..." />
+              </span>
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+              <th class="thNoWrap">
+                Id
+                <p-columnFilter type="text" field="idMicrosoftUpdate" display="menu"></p-columnFilter>
+              </th>
+              <th class="thNoWrap">
+                Alias
+                <p-columnFilter type="text" field="alias" display="menu"></p-columnFilter>
+              </th>
+              <th>
+                DocumentTitle
+                <p-columnFilter type="text" field="documentTitle" display="menu"></p-columnFilter>
+              </th>
+              <th class="thNoWrap">
+                Severity
+                <p-columnFilter type="text" field="severity" display="menu"></p-columnFilter>
+              </th>
+              <th class="thNoWrap">
+                InitialReleaseDate
+                <p-columnFilter type="text" field="initialReleaseDate" display="menu"></p-columnFilter>
+              </th>
+              <th class="thNoWrap">
+                CurrentReleaseDate
+                <p-columnFilter type="text" field="currentReleaseDate" display="menu"></p-columnFilter>
+              </th>
+              <th class="thNoWrap">
+                CvrfUrl
+                <p-columnFilter type="text" field="cvrfUrl" display="menu"></p-columnFilter>
+              </th>
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-microsoftUpdate>
+          <tr>
+              <td>
+                {{microsoftUpdate.idMicrosoftUpdate}}
+              </td>
+              <td>
+                {{microsoftUpdate.alias}}
+              </td>
+              <td>
+                {{microsoftUpdate.documentTitle}}
+              </td>
+              <td>
+                {{microsoftUpdate.severity}}
+              </td>
+              <td>
+                {{microsoftUpdate.initialReleaseDate}}
+              </td>
+              <td>
+                {{microsoftUpdate.currentReleaseDate}}
+              </td>
+              <td>
+                {{microsoftUpdate.cvrfUrl}}
+              </td>
+              <td>
+                <button pButton type="button" class="p-button-danger" (click)="deleteMicrosoftUpdate(microsoftUpdate)">Excluir</button>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="8">Nenhum Microsoft Update foi encontrado.</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
+
+<router-outlet></router-outlet>

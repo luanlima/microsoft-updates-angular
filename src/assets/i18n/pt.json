@@ -1,0 +1,19 @@
+{
+    "primeng": {
+        "startsWith": "Começa com",
+        "contains": "Contém",
+        "notContains": "Não contém",
+        "endsWith": "Termina com",
+        "equals": "Igual a",
+        "notEquals": "Diferente de",
+        "noFilter": "Sem Filtro",
+        "emptyMessage": "Nenhum registro encontrado",
+        "emptyFilterMessage": "Nenhum registro encontrado",
+        "clear": "Limpar",
+        "apply": "Aplicar",
+        "matchAll": "Combina todos",
+        "matchAny": "Combina qualquer",
+        "addRule": "Adicionar Regra",
+        "removeRule": "Remover Regra"
+    }
+}
